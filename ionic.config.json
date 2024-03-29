@@ -1,0 +1,7 @@
+{
+  "name": "bluBear",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
