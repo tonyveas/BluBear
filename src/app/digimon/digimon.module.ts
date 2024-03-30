@@ -10,9 +10,10 @@ import { DigimonRoutingModule } from './digimon-routing.module';
 
 // Components
 import { DigimonGridComponent } from './digimon-grid/digimon-grid.component';
+import { DigimonDetailComponent } from './digimon-detail/digimon-detail.component';
 
 @NgModule({
   imports: [CommonModule, IonicModule, DigimonRoutingModule],
-  declarations: [DigimonGridComponent],
+  declarations: [DigimonGridComponent, DigimonDetailComponent],
 })
 export class DigimonModule {}

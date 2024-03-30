@@ -1,0 +1,81 @@
+<ng-container>
+  <!-- <ion-card class="ion-activatable"> -->
+  <ion-card class="ion-activatable" (click)="onCardClick(digimon.id)">
+    <ion-ripple-effect> </ion-ripple-effect>
+    <img
+      [alt]="digimon.name"
+      [src]="digimon.image"
+      class="card-image"
+      (error)="setDefaultImage($event)"
+    />
+    <ion-card-header>
+      <ion-card-subtitle> # {{ digimon.id }}</ion-card-subtitle>
+      <ion-card-title>{{ digimon.name }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      {{ digimon.href }}
+    </ion-card-content>
+  </ion-card>
+
+  <ion-modal [isOpen]="isModalOpen">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar class="centered-content">
+          <ion-title>Información del Digimon</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="setOpen(false)">Close</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <ion-title class="centered-title-variation2">{{
+          digimon.id
+        }}</ion-title>
+        <ion-title class="centered-title-variation1">{{
+          digimon.name
+        }}</ion-title>
+        <ion-grid>
+          <ion-row class="centered-content">
+            <ion-col size="6" size-md="4" size-lg="3">
+              <img [src]="digimon.image" alt="" />
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-list>
+          <ion-item>
+            <!-- <ion-icon icon="" slot="start" name="logo-ionic"></ion-icon> -->
+            <ion-label>Levels</ion-label>
+
+            <ion-note slot="end">{{ getLevelsString() }}</ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-label>Attributes</ion-label>
+
+            <ion-note slot="end">{{ getAttributesString() }}</ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-label>Types</ion-label>
+
+            <ion-note slot="end">{{ getTypesString() }}</ion-note>
+          </ion-item>
+        </ion-list>
+        <ion-title class="centered-title-variation2">Fields</ion-title>
+        <ion-grid *ngFor="let field of digimonDetail.fields">
+          <ion-row
+            style="display: flex; justify-content: center; align-items: center"
+          >
+            <ion-col size="auto">
+              <img [src]="field.image" alt="" />
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+  <ion-loading
+    [isOpen]="isLoading"
+    message="Cargando información. Espere por favor..."
+  ></ion-loading>
+  <ng-container> </ng-container
+></ng-container>

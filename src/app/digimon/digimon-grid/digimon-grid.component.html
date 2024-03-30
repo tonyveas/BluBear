@@ -7,52 +7,10 @@
         size-lg="3"
         *ngFor="let digimon of digimons"
       >
-        <ion-card class="ion-activatable" (click)="onCardClick(digimon.id)">
-          <ion-ripple-effect> </ion-ripple-effect>
-          <img
-            [alt]="digimon.name"
-            [src]="digimon.image"
-            class="card-image"
-            (error)="setDefaultImage($event)"
-          />
-          <ion-card-header>
-            <ion-card-subtitle> # {{ digimon.id }}</ion-card-subtitle>
-            <ion-card-title>{{ digimon.name }}</ion-card-title>
-          </ion-card-header>
-
-          <ion-card-content>
-            {{ digimon.href }}
-          </ion-card-content>
-        </ion-card>
+        <app-digimon-detail [digimon]="digimon"></app-digimon-detail>
       </ion-col>
     </ion-row>
   </ion-grid>
-  <ion-modal [isOpen]="isModalOpen">
-    <ng-template>
-      <ion-header>
-        <ion-toolbar>
-          <ion-title>Información del Digimon</ion-title>
-          <ion-buttons slot="end">
-            <ion-button (click)="setOpen(false)">Close</ion-button>
-          </ion-buttons>
-        </ion-toolbar>
-      </ion-header>
-      <ion-content class="ion-padding">
-        <ion-list>
-          <ion-item>
-            <!-- <ion-icon icon="" slot="start" name="logo-ionic"></ion-icon> -->
-            <ion-label>Label</ion-label>
-
-            <ion-note slot="end">Note</ion-note>
-          </ion-item>
-        </ion-list>
-      </ion-content>
-    </ng-template>
-  </ion-modal>
-  <ion-loading
-    [isOpen]="isLoading"
-    message="Cargando información. Espere por favor..."
-  ></ion-loading>
   <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
     <ion-infinite-scroll-content></ion-infinite-scroll-content>
   </ion-infinite-scroll>
