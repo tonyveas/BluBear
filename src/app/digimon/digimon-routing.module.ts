@@ -1,14 +1,14 @@
 //Angular modules
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
 // Components
-import { FolderPage } from './folder.page';
+import { DigimonGridComponent } from './digimon-grid/digimon-grid.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: FolderPage,
+    component: DigimonGridComponent,
   },
 ];
 
@@ -16,4 +16,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class FolderPageRoutingModule {}
+export class DigimonRoutingModule {}
