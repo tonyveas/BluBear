@@ -1,0 +1,117 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="warning">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+    <ion-grid>
+      <ion-row
+        style="display: flex; justify-content: center; align-items: center"
+      >
+        <ion-col size="auto"
+          ><img
+            src="../../../assets/img/login.png"
+            alt="imagen"
+            style="max-width: 100%; height: auto"
+        /></ion-col>
+      </ion-row>
+      {{ model | json }}
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked"
+              >Nombre
+              <ion-text [hidden]="name.valid || name.untouched" color="danger"
+                >(Required)
+              </ion-text></ion-label
+            >
+            <ion-input
+              type="text"
+              name="name"
+              [(ngModel)]="model.name"
+              required
+              #name="ngModel"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked"
+              >Correo
+              <ion-text [hidden]="mail.valid || mail.untouched" color="danger"
+                >(Required)
+              </ion-text></ion-label
+            >
+            <ion-input
+              type="email"
+              name="mail"
+              [(ngModel)]="model.mail"
+              required
+              #mail="ngModel"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked"
+              >Contraseña
+              <ion-text
+                [hidden]="password.valid || password.untouched"
+                color="danger"
+                >(Required)</ion-text
+              ></ion-label
+            >
+            <ion-input
+              type="password"
+              name="password"
+              required
+              [(ngModel)]="model.password"
+              #password="ngModel"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-button
+            type="submit"
+            expand="full"
+            color="warning"
+            [disabled]="!heroForm.form.valid"
+            >Registrar</ion-button
+          >
+        </ion-col>
+      </ion-row>
+      <ion-row style="margin-bottom: 200px">
+        <ion-col class="ion-text-center">
+          <a
+            routerLink="/auth/login"
+            routerLinkActive="active"
+            ariaCurrentWhenActive="page"
+            >Iniciar sesión</a
+          >
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+  <ion-alert
+    [isOpen]="isOpen"
+    header="Guardado con éxito"
+    message="Revise su correo para activar su cuenta, por favor."
+    [buttons]="alertButtons"
+    (didDismiss)="setResult($event)"
+  ></ion-alert>
+  <ion-loading
+    [isOpen]="isLoading"
+    message="Registrando usuario. Espere por favor..."
+  ></ion-loading>
+</ion-content>

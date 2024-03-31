@@ -13,10 +13,6 @@ export class DigimonGridComponent implements OnInit {
   isLoading = false;
   isModalOpen = false;
 
-  setDefaultImage(event: any) {
-    event.target.src = 'assets/img/digimonLogo.png';
-  }
-
   constructor(private digimonService: DigimonService) {}
 
   ngOnInit() {
@@ -36,19 +32,5 @@ export class DigimonGridComponent implements OnInit {
     setTimeout(() => {
       (ev as InfiniteScrollCustomEvent).target.complete();
     }, 800);
-  }
-
-  onCardClick(id: number) {
-    this.isLoading = true;
-    this.digimonService.getDetail(id).subscribe((digimon) => {
-      this.isLoading = false;
-      this.isModalOpen = true;
-      console.log('Data: ', digimon);
-    });
-    console.log('Click: ', id);
-  }
-
-  setOpen(isOpen: boolean) {
-    this.isModalOpen = isOpen;
   }
 }

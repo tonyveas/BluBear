@@ -1,18 +1,61 @@
-import { Component } from '@angular/core';
+import { Component, DoCheck, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { User, getAuth, signOut, onAuthStateChanged } from 'firebase/auth';
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
-export class AppComponent {
-  public appPages = [
-    { title: 'Inbox', url: '/folder/inbox', icon: 'mail' },
-    { title: 'Outbox', url: '/folder/outbox', icon: 'paper-plane' },
-    { title: 'Favorites', url: '/folder/favorites', icon: 'heart' },
-    { title: 'Archived', url: '/folder/archived', icon: 'archive' },
-    { title: 'Trash', url: '/folder/trash', icon: 'trash' },
-    { title: 'Spam', url: '/folder/spam', icon: 'warning' },
-  ];
+export class AppComponent implements OnInit, DoCheck {
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
-  constructor() {}
+  user!: User;
+  isLoggedIn = false;
+
+  constructor(private router: Router) {}
+
+  ngOnInit() {
+    console.log('Executing ngOnInit() method - RegisterComponent');
+    // this.getCurrentUser();
+    const auth = getAuth();
+    onAuthStateChanged(auth, (user) => {
+      if (user && user.emailVerified) {
+        this.isLoggedIn = true;
+      } else {
+        this.isLoggedIn = false;
+      }
+    });
+  }
+
+  ngDoCheck(): void {
+    console.log('3. Executing ngDoCheck() method');
+    this.getCurrentUser();
+  }
+
+  getCurrentUser() {
+    // Recupera los datos del usuario del almacenamiento local
+    const currentUser = localStorage.getItem('currentUser');
+
+    // Verifica si los datos del usuario existen en el almacenamiento local
+    if (currentUser !== null) {
+      // Parsea los datos del usuario del almacenamiento local
+      this.user = JSON.parse(currentUser);
+      console.log(this.user);
+      console.log('LOCAL STORAGE EXITS');
+    } else {
+      console.log('No user is currently logged in');
+    }
+  }
+
+  logout() {
+    const auth = getAuth();
+    signOut(auth)
+      .then(() => {
+        console.log('User signed out');
+        this.router.navigate(['/auth/login']);
+      })
+      .catch((error) => {
+        console.error('Error signing out', error);
+      });
+  }
 }
