@@ -65,10 +65,10 @@ ionic capacitor open android
 
 # Capturas
 
-![Texto alternativo](https://drive.google.com/file/d/1AHrg4lzeC8okGGVXb038UDAkGLRXqu0i/view?usp=sharing)
-![Texto alternativo](https://drive.google.com/file/d/1AHG4_WKPmn1WoD8vVPDn2wzTsPGlsTus/view?usp=drive_link)
-![Texto alternativo](https://drive.google.com/file/d/1AFp0Qat41QH7R3TxFyCEKORifp78vbeo/view?usp=drive_link)
-![Texto alternativo](https://drive.google.com/file/d/1AA5GkMwWCZ9wq7ui8cdxtqwk5mUn9dkT/view?usp=drive_link)
+![Texto alternativo](https://lh3.googleusercontent.com/drive-viewer/AKGpihbfb4rtscmruXc8cuqq1QWG5cVXeENqGfIyfWYDbAtw13HW9liDoDaPz0zIEBCZyqhSo8G40kNyzAgB3eOvLeHKCqOr=w1366-h641-v0)
+![Texto alternativo](https://lh3.googleusercontent.com/drive-viewer/AKGpihZv8Dv897hRNk7BkWF3ek2qcCp0d4NjsfY_YZXaIJ0hmzBcHecxzT6sXAFqE2svJgd5aAVoi0C85qpQoBLM8LxT-2recA=w1366-h641-v0)
+![Texto alternativo](https://lh3.googleusercontent.com/drive-viewer/AKGpihaGPIalDRPyeklT0124X2NljGBudGeBkz2Yw3WZFCeddMLh46PJKlakngColmfnf2_mKhOW8F1pJ9Y9pIPb2yyD32fUrg=w1366-h641-v0)
+![Texto alternativo](https://lh3.googleusercontent.com/drive-viewer/AKGpihZIE5JTHGrPbIjI7p871D8iz88lxZoaeSU5SyT_cAMzzELAycnz4HkEWRyGRpegXXE7YNhZ6Ra8UHIkHiUCHLu9OcDK=w1366-h641-v0)
 
 # Contribuir
 
