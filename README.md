@@ -63,6 +63,13 @@ ionic capacitor open android
 3. Vista de Grilla de Digimons: Después de iniciar sesión, los usuarios pueden ver una grilla que muestra todos los Digimons obtenidos de la API. Esta pantalla solo puede ser accedida con una sesión válida.
 4. Información Detallada del Digimon: Al hacer clic en un Digimon de la grilla, se muestra otra pantalla (o pop up) con la información detallada del Digimon.
 
+# Capturas
+
+![Texto alternativo](https://lh3.googleusercontent.com/drive-viewer/AKGpihbfb4rtscmruXc8cuqq1QWG5cVXeENqGfIyfWYDbAtw13HW9liDoDaPz0zIEBCZyqhSo8G40kNyzAgB3eOvLeHKCqOr=w1366-h641-v0)
+![Texto alternativo](https://lh3.googleusercontent.com/drive-viewer/AKGpihZv8Dv897hRNk7BkWF3ek2qcCp0d4NjsfY_YZXaIJ0hmzBcHecxzT6sXAFqE2svJgd5aAVoi0C85qpQoBLM8LxT-2recA=w1366-h641-v0)
+![Texto alternativo](https://lh3.googleusercontent.com/drive-viewer/AKGpihaGPIalDRPyeklT0124X2NljGBudGeBkz2Yw3WZFCeddMLh46PJKlakngColmfnf2_mKhOW8F1pJ9Y9pIPb2yyD32fUrg=w1366-h641-v0)
+![Texto alternativo](https://lh3.googleusercontent.com/drive-viewer/AKGpihZIE5JTHGrPbIjI7p871D8iz88lxZoaeSU5SyT_cAMzzELAycnz4HkEWRyGRpegXXE7YNhZ6Ra8UHIkHiUCHLu9OcDK=w1366-h641-v0)
+
 # Contribuir
 
 Las contribuciones son bienvenidas. Para contribuir:
