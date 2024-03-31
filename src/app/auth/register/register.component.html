@@ -19,7 +19,7 @@
             style="max-width: 100%; height: auto"
         /></ion-col>
       </ion-row>
-      {{ model | json }}
+
       <ion-row>
         <ion-col>
           <ion-item>
@@ -106,9 +106,16 @@
   <ion-alert
     [isOpen]="isOpen"
     header="Guardado con éxito"
-    message="Revise su correo para activar su cuenta, por favor."
+    [message]="mensaje"
     [buttons]="alertButtons"
     (didDismiss)="setResult($event)"
+  ></ion-alert>
+  <ion-alert
+    [isOpen]="isOpenError"
+    header="Error"
+    message="El correo ya está en uso. No puede usar el mismo."
+    [buttons]="alertButtonsError"
+    (didDismiss)="setResultError($event)"
   ></ion-alert>
   <ion-loading
     [isOpen]="isLoading"

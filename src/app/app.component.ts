@@ -16,7 +16,6 @@ export class AppComponent implements OnInit, DoCheck {
 
   ngOnInit() {
     console.log('Executing ngOnInit() method - RegisterComponent');
-    // this.getCurrentUser();
     const auth = getAuth();
     onAuthStateChanged(auth, (user) => {
       if (user && user.emailVerified) {
@@ -28,22 +27,18 @@ export class AppComponent implements OnInit, DoCheck {
   }
 
   ngDoCheck(): void {
-    console.log('3. Executing ngDoCheck() method');
     this.getCurrentUser();
   }
 
   getCurrentUser() {
-    // Recupera los datos del usuario del almacenamiento local
     const currentUser = localStorage.getItem('currentUser');
 
-    // Verifica si los datos del usuario existen en el almacenamiento local
     if (currentUser !== null) {
-      // Parsea los datos del usuario del almacenamiento local
       this.user = JSON.parse(currentUser);
       console.log(this.user);
       console.log('LOCAL STORAGE EXITS');
     } else {
-      console.log('No user is currently logged in');
+      // console.log('No user is currently logged in');
     }
   }
 
