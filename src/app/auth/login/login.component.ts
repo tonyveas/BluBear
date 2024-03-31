@@ -43,6 +43,10 @@ export class LoginComponent implements OnInit {
           if (userCredential.user.emailVerified) {
             this.isLoading = false;
             console.log('Email is verified11111');
+            localStorage.setItem(
+              'currentUser',
+              JSON.stringify(userCredential.user)
+            );
             setTimeout(() => {
               this.router.navigate(['/digimon']);
             }, 0);
