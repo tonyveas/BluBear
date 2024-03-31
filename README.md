@@ -1,4 +1,5 @@
-"# Aplicación IONIC (Angular) - Android [Blu Bear]"
+# Aplicación IONIC (Angular) - Android [Blu Bear]
+
 Este proyecto es una aplicación móvil desarrollada con el framework Ionic para Android. La aplicación permite a los
 usuarios registrarse, iniciar sesión y explorar información detallada sobre Digimons obtenida de una API.
 
