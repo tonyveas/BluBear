@@ -21,7 +21,9 @@ export class RegisterComponent implements OnInit {
   constructor(private router: Router) {}
   model = new Usuario('Tony', 'tonyveas@hotmail.com', '111111');
   isOpen = false;
+  isOpenError = false;
   isLoading = false;
+  mensaje = '';
 
   ngOnInit() {
     console.log('Executing ngOnInit() method - RegisterComponent');
@@ -53,10 +55,16 @@ export class RegisterComponent implements OnInit {
       .then(() => {
         console.log('Verification email sent');
         this.isLoading = false;
+        this.mensaje = 'Revise su correo para activar su cuenta, por favor.';
         this.isOpen = true;
       })
       .catch((error) => {
-        console.error('Error registering user', error);
+        if (error.code === 'auth/email-already-in-use') {
+          this.isLoading = false;
+          this.isOpenError = true;
+        } else {
+          console.error('Error registering user', error);
+        }
       });
   }
 
@@ -78,11 +86,33 @@ export class RegisterComponent implements OnInit {
           //   queryParams: { color: 'blue', type: 'A' },
           // }
         );
+        this.isOpen = false;
+      },
+    },
+  ];
+
+  public alertButtonsError = [
+    // {
+    //   text: 'Cancel',
+    //   role: 'cancel',
+    //   handler: () => {
+    //     console.log('Alert canceled');
+    //   },
+    // },
+    {
+      text: 'OK',
+      role: 'confirm',
+      handler: () => {
+        this.isOpenError = false;
       },
     },
   ];
 
   setResult(ev: any) {
+    console.log(`Dismissed with role: ${ev.detail.role}`);
+  }
+
+  setResultError(ev: any) {
     console.log(`Dismissed with role: ${ev.detail.role}`);
   }
 
