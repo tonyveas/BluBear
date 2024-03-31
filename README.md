@@ -29,6 +29,33 @@ npm install
 ionic serve
 ```
 
+# Pasos generar apk
+
+1. Ejecutar:
+
+```terminal
+ionic build --prod
+```
+
+2. Ejecutar:
+
+```terminal
+ionic capacitor add android
+```
+
+3. Ejecutar:
+
+```terminal
+ionic capacitor open android
+```
+
+4. Abrir el proyecto en Android Studio.
+5. En la barra de menú superior, seleccionar Build > Build Bundle(s) / APK(s) > Build APK(s).
+6. Android Studio comenzará a construir tu APK. (Puede tomar unos minutos).
+7. Una vez que la construcción se haya completado, Android Studio mostrará una notificación en la esquina inferior derecha de la pantalla. Hacer clic en locate en la notificación para abrir el directorio donde se ha guardado el APK.
+8. El APK debería estar en el directorio app/build/outputs/apk/debug dentro de tu proyecto.
+9. Ahora puede instalar este APK en su dispositivo Android.
+
 # Funcionalidades
 
 1. Registro de Usuarios: Los usuarios pueden registrarse proporcionando su nombre, correo electrónico y contraseña. Se valida el correo electrónico mediante un correo de confirmación y no se permite iniciar sesión hasta que se valide el correo electrónico.
