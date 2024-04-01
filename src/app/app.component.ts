@@ -8,16 +8,14 @@ import { User, getAuth, signOut, onAuthStateChanged } from 'firebase/auth';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent implements OnInit, DoCheck {
-  public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
   user!: User;
   isLoggedIn = false;
 
   constructor(private router: Router) {}
 
   ngOnInit() {
-    console.log('Executing ngOnInit() method - RegisterComponent');
-    const auth = getAuth();
-    onAuthStateChanged(auth, (user) => {
+    const authorization = getAuth();
+    onAuthStateChanged(authorization, (user) => {
       if (user && user.emailVerified) {
         this.isLoggedIn = true;
       } else {
@@ -35,10 +33,7 @@ export class AppComponent implements OnInit, DoCheck {
 
     if (currentUser !== null) {
       this.user = JSON.parse(currentUser);
-      console.log(this.user);
-      console.log('LOCAL STORAGE EXITS');
     } else {
-      // console.log('No user is currently logged in');
     }
   }
 
@@ -46,7 +41,6 @@ export class AppComponent implements OnInit, DoCheck {
     const auth = getAuth();
     signOut(auth)
       .then(() => {
-        console.log('User signed out');
         this.router.navigate(['/auth/login']);
       })
       .catch((error) => {
